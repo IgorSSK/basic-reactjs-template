@@ -34,7 +34,7 @@ export function useFetch<Data = any, Error = any>(
           return await axiosAPI.get(url, { params: query });
       }
     },
-    []
+    [axiosAPI, httpMethod]
   );
 
   return { data, error, mutate };
