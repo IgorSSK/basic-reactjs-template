@@ -6,10 +6,10 @@ export default {
     black: '#000',
     white: '#fff',
 
-    info: '#2b3aff',
+    info: '#3498db',
     success: '#28be5a',
-    danger: '#d72638',
-    warning: '#ff9f1c',
+    danger: '#e74c3c',
+    warning: '#f1c40f',
     text: '#2D3748',
     textDark: '#171923',
     textLight: '#718096'
@@ -30,9 +30,9 @@ export default {
   },
 
   fontWeights: {
-    normal: 400,
+    normal: 300,
     medium: 500,
-    bold: 700
+    bold: 900
   },
 
   lineHeights: {
