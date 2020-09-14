@@ -1,18 +1,20 @@
 import React from 'react';
+import { toast } from 'react-toastify';
+import Button from '../Button';
 
-import { Container, Button, Title } from './styles';
+import { Container, Title } from './styles';
 
 interface Props {
   onClick(): void;
 }
 
 const HelloWorld: React.FC<Props> = ({ onClick, children }) => {
-  console.log(children);
+  toast.info('easy');
 
   return (
     <Container>
-      <Title>Hello DEV!</Title>
-      <Button onClick={onClick}>Switch Theme</Button>
+      <Title>{children}</Title>
+      <Button title="Switch Theme" onClick={onClick} />
     </Container>
   );
 };
