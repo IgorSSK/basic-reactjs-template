@@ -1,6 +1,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 import Button from '../Button';
+import Table from '../Table';
 
 import { Container, Title } from './styles';
 
@@ -15,6 +16,10 @@ const HelloWorld: React.FC<Props> = ({ onClick, children }) => {
     <Container>
       <Title>{children}</Title>
       <Button title="Switch Theme" onClick={onClick} />
+      <Table
+        columns={[{ field: 'name', title: 'Name' }]}
+        data={[{ name: 'Igor' }]}
+      />
     </Container>
   );
 };

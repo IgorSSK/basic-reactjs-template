@@ -5,14 +5,15 @@ import MaterialTable, {
   DetailPanel,
   Options
 } from 'material-table';
+import { Container } from './styles';
 
 interface TableProps {
-  title: string;
+  title?: string;
   columns: Column<object>[];
   data: object[];
-  actions: (Action<object> | ((rowData: object) => Action<object>))[];
-  options: Options<object>;
-  panel:
+  actions?: (Action<object> | ((rowData: object) => Action<object>))[];
+  options?: Options<object>;
+  panel?:
     | ((rowData: object) => React.ReactNode)
     | (DetailPanel<object> | ((rowData: object) => DetailPanel<object>))[];
 }
@@ -37,34 +38,26 @@ const Table: React.FC<TableProps> = ({
       searchPlaceholder: 'Digite algo para filtrar...'
     }
   };
-  const opt = options
-    ? options
-    : {
-        toolbar: false,
-        paging: false,
-        sorting: false,
-        draggable: false,
-        headerStyle: { fontWeight: 'bold' },
-        rowStyle: { fontSize: '10px' }
-      };
+  options = {
+    toolbar: false,
+    paging: false,
+    sorting: false,
+    draggable: false,
+    headerStyle: { fontWeight: 'bold' },
+    ...options
+  };
   return (
-    <MaterialTable
-      title={title || ''}
-      columns={columns}
-      data={data}
-      actions={actions}
-      options={{
-        toolbar: false,
-        paging: false,
-        sorting: false,
-        draggable: false,
-        headerStyle: { fontWeight: 'bold' },
-        rowStyle: { fontSize: '10px' },
-        ...options
-      }}
-      detailPanel={panel}
-      localization={localization}
-    />
+    <Container>
+      <MaterialTable
+        title={title || ''}
+        columns={columns}
+        data={data}
+        actions={actions}
+        options={options}
+        detailPanel={panel}
+        localization={localization}
+      />
+    </Container>
   );
 };
 
