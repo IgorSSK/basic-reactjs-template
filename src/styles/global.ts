@@ -19,4 +19,13 @@ input,
 button {
 	font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
+
+i {
+	font-family: "Material Icons";
+	font-style: normal;
+	font-size: ${({ theme }) => theme.fontSizes["2xl"]};
+	text-transform: none;
+	-webkit-font-feature-settings: "liga";
+	-webkit-font-smoothing: antialiased;
+}
 `

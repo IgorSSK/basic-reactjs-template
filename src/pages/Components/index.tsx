@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../../components/Card';
+import IconButton from '../../components/IconButton';
 import Table from '../../components/Table';
 
 // import { Container } from './styles';
@@ -13,7 +14,7 @@ const Components: React.FC = () => {
       />
     </Card>
     <Card>
-
+      <IconButton icon="folder" />
     </Card>
   </div>;
 }
