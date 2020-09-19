@@ -9,7 +9,6 @@ export default {
     background: '#f5f5f5',
     primary: '#072240',
     primaryLight: '#81a4cd',
-    secondary: '#3f88c5',
-    highlight: '#fb5012'
+    secondary: '#fb5012',
   },
 };

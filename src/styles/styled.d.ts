@@ -13,7 +13,7 @@ declare module 'styled-components' {
       primary: string;
       primaryLight: string;
       secondary: string;
-      highlight: string;
+      // highlight: string;
       info: string;
       success: string;
       danger: string;

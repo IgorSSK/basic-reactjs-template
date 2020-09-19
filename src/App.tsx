@@ -3,7 +3,7 @@ import { ThemeProvider, DefaultTheme } from 'styled-components';
 import usePersistedState from './hooks/usePersistedState';
 import light from './styles/themes/light';
 import GlobalStyle from './styles/global';
-import HelloWorld from './components/HelloWorld';
+import HelloWorld from './pages/HelloWorld';
 import dark from './styles/themes/dark';
 import ToastNotification from './components/ToastNotification';
 import Formatter from './helpers/formatters';

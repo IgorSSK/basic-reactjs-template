@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
-import Button from '../Button';
-import Table from '../Table';
+import Button from '../../components/Button';
+import Table from '../../components/Table';
 
 import { Container, Title } from './styles';
 

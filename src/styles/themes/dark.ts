@@ -9,8 +9,7 @@ export default {
     background: '#171923',
     primary: '#718096',
     primaryLight: '#CBD5E0',
-    secondary: '#3f88c5',
-    highlight: '#3f88c5',
+    secondary: '#fb5012',
 
     text: '#FFF'
   }
