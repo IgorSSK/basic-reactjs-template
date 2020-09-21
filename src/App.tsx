@@ -19,7 +19,7 @@ const App: React.FC = () => {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <HelloWorld onClick={themeChangeHandler}>
-        Hello DEV! {Formatter.datetime(new Date())}
+        Hello DEV! {Formatter.dateTime(new Date())}
       </HelloWorld>
       <ToastNotification />
     </ThemeProvider>

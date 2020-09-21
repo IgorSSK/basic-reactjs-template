@@ -6,7 +6,7 @@ export default class Formatter {
     }).format(value);
   }
 
-  static datetime(value: number | string | Date): string {
+  static dateTime(value: number | string | Date): string {
     value = new Date(value);
     const options = {
       timeStyle: 'medium',
@@ -23,5 +23,15 @@ export default class Formatter {
       hour12: false
     };
     return Intl.DateTimeFormat('pt-BR', options).format(value);
+  }
+
+  static splitList<T = any>(locations: T[], size = 10): T[][] {
+    let list: T[][] = [];
+
+    for (let i = 0; i < locations.length; i += size) {
+      list.push(locations.slice(i, i + size));
+    }
+
+    return list;
   }
 }

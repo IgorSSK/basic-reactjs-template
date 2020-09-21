@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiPath = '';
+const apiPath = 'https://jsonplaceholder.typicode.com';
 
 const api = axios.create({ baseURL: apiPath });
 
