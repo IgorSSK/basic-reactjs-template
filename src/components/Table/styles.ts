@@ -4,9 +4,10 @@ export const Container = styled.div`
   && .MuiPaper-root,
   && .MuiTableCell-root {
     background: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.textColor};
   }
 
   && .MuiTableCell-root {
-    border-color: ${({ theme }) => theme.colors.primaryLight};
+    border-color: ${({ theme }) => theme.colors.primaryDark};
   }
 `;
