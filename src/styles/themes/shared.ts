@@ -11,9 +11,9 @@ export default {
     danger: '#e74c3c',
     warning: '#f1c40f',
     text: '#121923',
-    color: '#2D3748',
-    colorDark: '#171923',
-    colorLight: '#718096'
+    textColor: '#2D3748',
+    textColorDark: '#171923',
+    textColorLight: '#718096'
   },
 
   fontSizes: {

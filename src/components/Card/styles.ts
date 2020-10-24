@@ -7,5 +7,5 @@ export const Container = styled.div`
   box-shadow: ${({ theme }) => theme.elevation[1]};
   padding: ${({ theme }) => theme.space[4]};
   margin: ${({ theme }) => theme.space[2]};
-  background: ${({ theme }) => theme.colors.color}
+  background: ${({ theme }) => theme.title === 'light' ? theme.colors.background : theme.colors.textColorDark}
 `;

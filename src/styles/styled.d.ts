@@ -11,17 +11,16 @@ declare module 'styled-components' {
 
       background: string;
       primary: string;
+      primaryDark: string;
       primaryLight: string;
       secondary: string;
-      // highlight: string;
       info: string;
       success: string;
       danger: string;
       warning: string;
-      text: string;
-      color: string;
-      colorDark: string;
-      colorLight: string;
+      textColor: string;
+      textColorDark: string;
+      textColorLight: string;
     };
 
     fontSizes: {

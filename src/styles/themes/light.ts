@@ -6,9 +6,10 @@ export default {
   title: 'light',
   colors: {
     ...shared.colors,
-    background: '#f5f5f5',
-    primary: '#072240',
-    primaryLight: '#81a4cd',
-    secondary: '#fb5012',
+    background: '#FAFAFA',
+    primary: '#457B9D',
+    primaryDark: '#1D3557',
+    primaryLight: '#A8DADC',
+    secondary: '#E63946',
   },
 };

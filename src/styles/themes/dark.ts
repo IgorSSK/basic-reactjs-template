@@ -8,9 +8,10 @@ export default {
     ...shared.colors,
     background: '#171923',
     primary: '#718096',
+    primaryDark: '#1D3557',
     primaryLight: '#CBD5E0',
-    secondary: '#fb5012',
+    secondary: '#E63946',
 
-    text: '#FFF'
+    textColor: '#FFF'
   }
 };
