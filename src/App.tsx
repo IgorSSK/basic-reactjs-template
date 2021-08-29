@@ -6,7 +6,6 @@ import GlobalStyle from './styles/global';
 import HelloWorld from './pages/HelloWorld';
 import dark from './styles/themes/dark';
 import ToastNotification from './components/ToastNotification';
-import Formatter from './helpers/formatters';
 
 const App: React.FC = () => {
   const [theme, setTheme] = usePersistedState<DefaultTheme>('theme', light);
@@ -18,9 +17,7 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <HelloWorld onClick={themeChangeHandler}>
-        Hello DEV! {Formatter.datetime(new Date())}
-      </HelloWorld>
+      <HelloWorld onClick={themeChangeHandler}>Hello DEV!</HelloWorld>
       <ToastNotification />
     </ThemeProvider>
   );
