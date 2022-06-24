@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import Card from '../../components/Card';
 import IconButton from '../../components/IconButton';
 import TextField from '../../components/TextField';
+// import { TextField } from '@material-ui/core';
 import Table from '../../components/Table';
 // import { useFetch } from '../../hooks/useFetch';
 // import api from '../../services/api';
@@ -48,6 +49,7 @@ const Components: React.FC = () => {
             formErrors[err.path] = err.message;
           }
         });
+      console.error(error);
 
       formRef.current?.setErrors(formErrors);
     }
@@ -69,13 +71,15 @@ const Components: React.FC = () => {
       </Card>
       <Card>
         <Form ref={formRef} onSubmit={handleSubmit} initialData={{ name: 'Igor Souza', email: '' }}>
-          <TextField placeholder="Name" label="Name" name="name" startAdornment="+55" />
+          <TextField placeholder="Name" label="Name" name="name" variant="outlined" startAdornment="%" />
           <TextField
             placeholder="E-mail"
+            variant="outlined"
             label="E-mail"
             name="email"
             mask="******@hotmail.com"
             startAdornment={<MdEmail />}
+            endAdornment="hotmail.com"
           />
           <Radio
             options={[

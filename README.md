@@ -1,3 +1,22 @@
+## Estrutura de pastas
+
+- src
+  - assets
+  - app
+    - components
+    - features (grupo de componentes)
+    - views (grupo de features)
+      routes.tsx
+  - auth
+  - core
+    - hocs
+    - hooks
+    - selectors
+    - store
+    - services
+    - utils
+      index.tsx
+
 # basic-reactjs-template
 
 Basic template with some configs already made

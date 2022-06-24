@@ -1,60 +1,69 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, InputHTMLAttributes, RefObject } from 'react';
 
-import { InputField } from './styles';
+import { Adornment, InputField, Label, SpanError, Wrapper } from './styles';
 import { useField } from '@unform/core';
-import InputMask from 'react-input-mask';
-import InputAdornment from '@material-ui/core/InputAdornment';
+//import { useMask } from '../../hooks/useMask';
+//import InputMask, { Props as InputMaskProps } from 'react-input-mask';
 
-interface ITextFieldMaskProps {
-  mask?: string | Array<string | RegExp>;
-  alwaysShowMask?: boolean;
-}
+export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
-interface ITextFieldProps extends ITextFieldMaskProps {
+interface ITextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
+  //Omit<InputMaskProps, 'mask'> {
   name: string;
-  placeholder: string;
-  startAdornment?: string | JSX.Element;
-  endAdornmnet?: string | JSX.Element;
   label?: string;
+  value?: string;
+  variant: string;
+  startAdornment?: string | JSX.Element;
+  endAdornment?: string | JSX.Element;
+  mask?: string | Array<string | RegExp>;
 }
 
 const TextField: React.FC<ITextFieldProps> = ({
-  name = '',
-  mask,
-  alwaysShowMask,
+  name,
+  label,
+  placeholder,
+  value,
+  //mask,
+  //alwaysShowMask,
   startAdornment,
-  endAdornmnet,
-  ...props
+  endAdornment,
+  ...rest
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const { fieldName, defaultValue = '', registerField, error, clearError } = useField(name);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  const { fieldName, defaultValue, registerField, error } = useField(name);
 
   useEffect(() => {
     registerField({
       name: fieldName,
-      ref: inputRef.current,
-      path: 'value'
+      ref: inputRef,
+      getValue: (ref: RefObject<HTMLInputElement>) => ref.current?.value,
+      setValue: (ref: RefObject<HTMLInputElement>, value) => {
+        if (ref.current) ref.current.value = value ?? '';
+      },
+      clearValue: (ref: RefObject<HTMLInputElement>) => {
+        if (ref.current) ref.current.value = '';
+      }
     });
   }, [fieldName, registerField]);
 
   return (
-    <InputMask mask={mask ? mask : ''} alwaysShowMask={alwaysShowMask} onFocus={clearError}>
-      {() => (
+    <>
+      <Wrapper ref={wrapperRef} error={!!error}>
+        {startAdornment && <Adornment>{startAdornment}</Adornment>}
         <InputField
           id={fieldName}
-          inputRef={inputRef}
-          error={!!error}
-          helperText={error}
-          defaultValue={defaultValue}
-          variant="outlined"
-          InputProps={{
-            startAdornment: startAdornment && <InputAdornment position="start">{startAdornment}</InputAdornment>,
-            endAdornment: endAdornmnet && <InputAdornment position="end">{endAdornmnet}</InputAdornment>
-          }}
-          {...props}
+          ref={inputRef}
+          placeholder={placeholder || ' '}
+          defaultValue={value || defaultValue}
+          {...rest}
         />
-      )}
-    </InputMask>
+        {endAdornment && <Adornment>{endAdornment}</Adornment>}
+        <Label htmlFor={fieldName}>{label}</Label>
+      </Wrapper>
+      {error && <SpanError>{error}</SpanError>}
+    </>
   );
 };
 

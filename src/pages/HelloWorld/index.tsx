@@ -11,8 +11,8 @@ interface Props {
 }
 
 const HelloWorld: React.FC<Props> = ({ onClick, children }) => {
-  const [date, setDate] = useState(new Date());
-  setTimeout(() => setDate(new Date()), 1000);
+  const [date] = useState(new Date());
+  //setTimeout(() => setDate(new Date()), 1000);
 
   useEffect(() => {
     toast.info('easy');
