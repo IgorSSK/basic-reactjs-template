@@ -6,6 +6,7 @@ import { Container, Title } from './styles';
 
 interface Props {
   onClick(): void;
+  children: any;
 }
 
 const HelloWorld: React.FC<Props> = ({ onClick, children }) => {
