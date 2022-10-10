@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer as ToastifyContainer } from 'react-toastify'
 
-export const Container = styled(ToastContainer)`
+export const ToastContainer = styled(ToastifyContainer)`
   .Toastify__toast-container {
   }
   .Toastify__toast {

@@ -1,9 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import {createRoot} from 'react-dom/client';
 import App from '@presentation/views/App';
+import { UiProvider } from '@presentation/contexts/UiContext';
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+const rootElement = document.getElementById('root') as HTMLElement;
+const root = createRoot(rootElement);
+
+root.render(
   <React.StrictMode>
+    <UiProvider>
     <App />
+    </UiProvider>
   </React.StrictMode>
 );
