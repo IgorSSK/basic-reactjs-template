@@ -7,9 +7,10 @@ export default {
   colors: {
     ...shared.colors,
     background: '#f5f5f5',
+    secondaryBackground: '#fff',
     primary: '#072240',
     primaryLight: '#81a4cd',
     secondary: '#3f88c5',
     highlight: '#fb5012'
-  },
+  }
 };

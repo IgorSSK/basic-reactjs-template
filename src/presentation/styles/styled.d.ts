@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 
 declare module 'styled-components' {
@@ -11,6 +10,7 @@ declare module 'styled-components' {
       white: string;
 
       background: string;
+      secondaryBackground: string;
       primary: string;
       primaryLight: string;
       secondary: string;

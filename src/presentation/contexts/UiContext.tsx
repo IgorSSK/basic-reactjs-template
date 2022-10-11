@@ -28,7 +28,12 @@ const UiProvider: React.FC<{ children: React.ReactElement }> = ({ children }) =>
 
   return (
     <UiContext.Provider
-      value={{ theme, changeTheme: themeChangeHandler, notify: toast, loading: { active: isLoading, dispatch: dispatchLoading } }}
+      value={{
+        theme,
+        changeTheme: themeChangeHandler,
+        notify: toast,
+        loading: { active: isLoading, dispatch: dispatchLoading }
+      }}
     >
       <ThemeProvider theme={theme}>
         <GlobalStyle />
