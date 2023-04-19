@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
 * {
@@ -19,4 +19,15 @@ input,
 button {
 	font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
-`
+
+pre {
+	background-color: ${({ theme }) => theme.colors.black};
+}
+code {
+	white-space: pre; 
+	font-family: monospace; 
+	
+	color: ${({ theme }) => theme.colors.highlight};
+	padding: ${({ theme }) => theme.space[3]};;
+}
+`;

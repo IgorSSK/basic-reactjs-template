@@ -1,5 +1,4 @@
 import React from 'react';
-import { MdCompost, MdHome } from 'react-icons/md';
 import MenuItem, { MenuItemType } from './MenuItem';
 import { SidebarMenuContainer } from './styles';
 

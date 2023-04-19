@@ -1,12 +1,12 @@
 import React from 'react';
 import { ButtonDefault } from './styles';
 
-interface Props {
-  onClick(): void;
+type ButtonProps = {
+  onClick?(): void;
   title: string;
-}
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button: React.FC<Props> = ({ onClick, title, ...props }) => {
+const Button: React.FC<ButtonProps> = ({ onClick, title, ...props }) => {
   return (
     <ButtonDefault onClick={onClick} {...props}>
       {title}

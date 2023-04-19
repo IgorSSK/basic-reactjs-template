@@ -5,7 +5,18 @@ import PrivateRoute from '@main/proxies/private-route';
 
 const RoutesConfig: React.FC = () => {
   const mapToBrowserRouter = (): RouteObject[] => {
-    return routes.map(route => ({
+    const unnestedRoutes: any = [];
+    routes.forEach(route => {
+      if (route.children) {
+        route.children.forEach(child =>
+          unnestedRoutes.push({ ...child, path: route.path + child.path })
+        );
+      } else {
+        unnestedRoutes.push(route);
+      }
+    });
+
+    return unnestedRoutes.map(route => ({
       path: route.path,
       element: route.private ? (
         <PrivateRoute>

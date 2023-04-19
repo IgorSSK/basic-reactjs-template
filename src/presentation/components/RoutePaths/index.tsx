@@ -22,7 +22,9 @@ const RoutePaths: React.FC<RoutePathsProps> = () => {
               {value}
             </Text>
           ) : (
-            <RouterLink to={to}>{value}</RouterLink>
+            <RouterLink key={to} to={to}>
+              {value}
+            </RouterLink>
           );
         })}
       </Paths>

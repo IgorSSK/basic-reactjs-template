@@ -13,6 +13,6 @@ export default {
     secondary: '#3f88c5',
     highlight: '#1c7bc9',
 
-    text: '#FFF'
+    text: '#FFFFFF'
   }
 };

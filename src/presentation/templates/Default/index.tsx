@@ -1,3 +1,4 @@
+import { routes } from '@main/routes/routes-map';
 import Loading from '@presentation/components/Loading';
 import Sidebar from '@presentation/components/Sidebar';
 import Topbar from '@presentation/components/Topbar';
@@ -15,7 +16,7 @@ const DefaultTemplate: React.FC<DefaultTemplateProps> = ({ children }) => {
 
   return (
     <DefaultTemplateContainer>
-      <Sidebar />
+      <Sidebar menuItems={routes} />
       <Section>
         <Topbar />
         <Loading isLoading={loading.active} />

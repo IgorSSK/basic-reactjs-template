@@ -1,11 +1,17 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import Collapse from '@mui/material/Collapse';
 import Menu from '@mui/material/Menu';
 import useToggle from '@presentation/hooks/useToggle';
 import { IconType } from 'react-icons';
 import { MdExpandLess, MdExpandMore } from 'react-icons/md';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { MenuItemButton, MenuItemContainer, MenuItemIcon, MenuItemText } from './styles';
+import {
+  MenuItemButton,
+  MenuItemContainer,
+  MenuItemIcon,
+  MenuItemSubmenu,
+  MenuItemText
+} from './styles';
 
 export type MenuItemType = {
   id: string | number;
@@ -61,7 +67,6 @@ const MenuItem: React.FC<MenuItemProps> = ({ isSidebarOpen, item }) => {
   const [isOpen, toggle, reset] = useToggle(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const isCurrent = location.pathname === item.path;
   const subItem = {
     collapse: {
       component: Collapse,
@@ -72,7 +77,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ isSidebarOpen, item }) => {
       }
     },
     menu: {
-      component: Menu,
+      component: MenuItemSubmenu,
       props: {
         anchorEl: anchorEl,
         open: isOpen,
@@ -93,25 +98,26 @@ const MenuItem: React.FC<MenuItemProps> = ({ isSidebarOpen, item }) => {
 
   const handleSelect: SelectEventType = useCallback(
     e => {
-      setAnchorEl(e.currentTarget);
-
       const itemSelected =
-        item.id === e.currentTarget.id
+        String(item.id) === e.currentTarget.id
           ? item
-          : item.children?.find(x => x.id === e.currentTarget.id);
+          : item.children?.find(x => String(x.id) === e.currentTarget.id);
+
       if (!itemSelected) return;
 
       if (itemSelected.children) {
+        setAnchorEl(e.currentTarget);
         toggle();
         return;
       }
       const path = item.children ? item.path + itemSelected.path : itemSelected.path;
 
       navigate(path);
-      reset();
     },
     [setAnchorEl, toggle, item]
   );
+
+  useEffect(() => reset(), [isSidebarOpen]);
 
   return (
     <React.Fragment>
@@ -120,7 +126,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ isSidebarOpen, item }) => {
         item={item}
         isChieldOpen={isOpen}
         onSelectItem={handleSelect}
-        selected={isCurrent}
+        selected={location.pathname === item.path}
       />
       {item.children && (
         <current.component {...current.props}>
@@ -130,7 +136,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ isSidebarOpen, item }) => {
               isSidebarOpen={isSidebarOpen}
               item={chield}
               onSelectItem={handleSelect}
-              selected={isCurrent}
+              selected={location.pathname === item.path + chield.path}
               subitem
             />
           ))}

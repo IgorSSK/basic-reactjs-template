@@ -1,7 +1,7 @@
 import React from 'react';
-import {createRoot} from 'react-dom/client';
-import App from '@presentation/views/App';
+import { createRoot } from 'react-dom/client';
 import { UiProvider } from '@presentation/contexts/UiContext';
+import RoutesConfig from '@main/routes';
 
 const rootElement = document.getElementById('root') as HTMLElement;
 const root = createRoot(rootElement);
@@ -9,7 +9,7 @@ const root = createRoot(rootElement);
 root.render(
   <React.StrictMode>
     <UiProvider>
-    <App />
+      <RoutesConfig />
     </UiProvider>
   </React.StrictMode>
 );
